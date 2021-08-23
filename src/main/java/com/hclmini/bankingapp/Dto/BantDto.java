@@ -2,6 +2,8 @@ package com.hclmini.bankingapp.Dto;
 
 import lombok.*;
 
+import javax.validation.constraints.NotNull;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -9,8 +11,10 @@ import lombok.*;
 @Builder
 public class BantDto {
 
+    @NotNull
     private String branchName;
 
+    @NotNull
     private Integer branchCode;
 
     private AddressDto branchAddress;

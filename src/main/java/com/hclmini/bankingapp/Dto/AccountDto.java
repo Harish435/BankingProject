@@ -2,6 +2,7 @@ package com.hclmini.bankingapp.Dto;
 
 import lombok.*;
 
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @AllArgsConstructor
@@ -11,12 +12,14 @@ import java.util.Date;
 @Builder
 public class AccountDto {
 
+
     private Long accountNumber;
 
     private BantDto bankInformation;
 
     private String accountStatus;
 
+    @NotNull(message = "Enter account Type.")
     private String accountType;
 
     private Double accountBalance;

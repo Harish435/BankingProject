@@ -3,18 +3,21 @@ package com.hclmini.bankingapp.Dto;
 
 import lombok.*;
 
+import javax.validation.constraints.NotNull;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @Builder
 public class CustomersDto {
+    @NotNull(message = "First Name Should Not Empty.")
     private String firstName;
-
+    @NotNull(message = "Last Name Should Not Empty.")
     private String lastName;
 
     private String middleName;
-
+    @NotNull(message = "customerNumber Should Not Empty.")
     private Long customerNumber;
 
     private String status;
