@@ -26,12 +26,12 @@ public class AccountController {
     public ResponseEntity<Object> addAcc(@RequestBody AccountDto theaccountdto,@PathVariable Long customerNumber){
         return bankingService.addAccount(theaccountdto,customerNumber);
     }
-    @PutMapping("/transfer/{customerNumber}")
+    @PutMapping("/{customerNumber}/transfers")
     public ResponseEntity<Object> transferDetails(@RequestBody CustomerAccouDto customerAccouDto
             ,@PathVariable Long customerNumber){
         return  bankingService.transferAmount(customerAccouDto,customerNumber);
     }
-    @GetMapping("/transaction/{accountNumber}")
+    @GetMapping("/{accountNumber}/transactions")
     public List<TransactionDto> getTransactionByAccNumber(@PathVariable Long accountNumber){
         return bankingService.getByTransationId(accountNumber);
     }

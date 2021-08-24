@@ -123,7 +123,7 @@ public class BankingServiceImpl implements BankingService {
         if(managedCustomerEntityOpt.isPresent()) {
             Customers managedCustomerEntity = managedCustomerEntityOpt.get();
             customerRepository.delete(managedCustomerEntity);
-            return ResponseEntity.status(HttpStatus.OK).body("Success: Customer deleted.");
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Success: Customer deleted.");
         } else {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Customer does not exist.");
         }
