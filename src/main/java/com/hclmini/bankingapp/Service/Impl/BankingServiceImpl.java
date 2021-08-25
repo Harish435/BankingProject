@@ -5,6 +5,7 @@ import com.hclmini.bankingapp.Dto.CustomerAccouDto;
 import com.hclmini.bankingapp.Dto.CustomersDto;
 import com.hclmini.bankingapp.Dto.TransactionDto;
 import com.hclmini.bankingapp.Entity.*;
+import com.hclmini.bankingapp.Exceptionss.CustomerNumberInvalidException;
 import com.hclmini.bankingapp.Repository.AccountRepository;
 import com.hclmini.bankingapp.Repository.CustomerAccountRepo;
 import com.hclmini.bankingapp.Repository.CustomerRepository;
@@ -64,12 +65,17 @@ public class BankingServiceImpl implements BankingService {
     }
 
     @Override
-    public CustomersDto getById(Long customerNumber) {
+    public ResponseEntity<Object> getById(Long customerNumber) {
         Optional<Customers> customerOpt= customerRepository.findByCustomerNumber(customerNumber);
-        if(customerOpt.isPresent()){
-           return bankinghelper.convertToCustomerDto(customerOpt.get()) ;
+
+       if(customerOpt.isPresent()){
+           return ResponseEntity.status(HttpStatus.FOUND)
+                    .body(bankinghelper.convertToCustomerDto(customerOpt.get()));
+        }else{
+             return ResponseEntity.status(HttpStatus.NOT_FOUND.value())
+                     .body("Customer Number:"+customerNumber+" Not Found!");
         }
-        return null;
+
     }
 
     @Override

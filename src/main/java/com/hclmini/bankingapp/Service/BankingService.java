@@ -15,7 +15,7 @@ public interface BankingService {
 
     ResponseEntity<Object> addCustomer(CustomersDto customer);
 
-    CustomersDto getById(Long customerNumber);
+    ResponseEntity<Object> getById(Long customerNumber);
 
     ResponseEntity<Object> updateCustomers(CustomersDto customerdto, Long customerNumber);
 

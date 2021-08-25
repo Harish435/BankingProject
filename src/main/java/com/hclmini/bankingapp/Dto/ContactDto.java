@@ -12,7 +12,8 @@ import javax.validation.constraints.NotNull;
 @Setter
 @Builder
 public class ContactDto {
-    @Email(message = "Please Enter Valid Email.")
+    @Email
+    @NotEmpty
     private String emailId;
 
     @NotEmpty

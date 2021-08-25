@@ -2,8 +2,6 @@ package com.hclmini.bankingapp.Controller;
 
 import com.hclmini.bankingapp.Dto.CustomersDto;
 import com.hclmini.bankingapp.Service.BankingService;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +26,7 @@ public class CustomersController {
         return bankingService.addCustomer(customer);
     }
     @GetMapping("/{customerNumber}")
-    public CustomersDto getBycustomerNum(@Valid @PathVariable Long customerNumber){
+    public ResponseEntity<Object> getBycustomerNum(@Valid @PathVariable Long customerNumber){
         return bankingService.getById(customerNumber);
     }
     @PutMapping("/{customerNumber}")

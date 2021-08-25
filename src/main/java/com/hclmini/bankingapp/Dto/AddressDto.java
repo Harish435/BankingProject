@@ -11,16 +11,16 @@ import javax.validation.constraints.NotNull;
 @Setter
 @Builder
 public class AddressDto {
-    @NotEmpty(message = "Please Fill the Address")
+     @NotEmpty(message = "Please Fill the Address")
     private String address1;
     @NotEmpty(message = "Please fill Complete Address")
     private String address2;
-    @NotNull(message = "enter the City name")
+    @NotEmpty(message = "enter the City name")
     private String city;
-    @NotNull(message = "Enter the State Name.")
+    @NotEmpty(message = "Enter the State Name.")
     private String state;
-    @NotNull(message = "Enter the Zip code")
+    @NotEmpty(message = "Enter the Zip code")
     private String zip;
-    @NotNull(message = "Enter the Country.")
+    @NotEmpty(message = "Enter the Country.")
     private String country;
 }

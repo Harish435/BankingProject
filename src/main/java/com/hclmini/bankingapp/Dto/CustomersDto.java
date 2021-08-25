@@ -3,28 +3,45 @@ package com.hclmini.bankingapp.Dto;
 
 import lombok.*;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@Builder
 public class CustomersDto {
-    @NotNull(message = "First Name Should Not Empty.")
+
+    @NotEmpty(message = "First Name Required!!")
     private String firstName;
-    @NotNull(message = "Last Name Should Not Empty.")
+    @NotEmpty(message = "Last Name Required!!")
     private String lastName;
 
     private String middleName;
-    @NotNull(message = "customerNumber Should Not Empty.")
+
     private Long customerNumber;
 
+    @NotNull
     private String status;
 
+    @Valid
     private AddressDto customerAddress;
-
+    @Valid
     private ContactDto contactDetails;
+
+    public CustomersDto() {
+    }
+
+    public CustomersDto(
+                                String firstName,
+            String lastName, String middleName,
+            Long customerNumber, @NotNull String status, AddressDto customerAddress, ContactDto contactDetails) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.middleName = middleName;
+        this.customerNumber = customerNumber;
+        this.status = status;
+        this.customerAddress = customerAddress;
+        this.contactDetails = contactDetails;
+    }
 
     public String getFirstName() {
         return firstName;
