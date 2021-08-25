@@ -52,6 +52,7 @@ public class BankingServiceImpl implements BankingService {
         all.forEach(customers->{
             allcustomersList.add(bankinghelper.convertToCustomerDto(customers));
         });
+        System.out.println("The data From DataBase:"+allcustomersList);
         return allcustomersList;
     }
 

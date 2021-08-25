@@ -98,4 +98,17 @@ public class CustomersDto {
     public void setContactDetails(ContactDto contactDetails) {
         this.contactDetails = contactDetails;
     }
+
+    @Override
+    public String toString() {
+        return "CustomersDto{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", middleName='" + middleName + '\'' +
+                ", customerNumber=" + customerNumber +
+                ", status='" + status + '\'' +
+                ", customerAddress=" + customerAddress +
+                ", contactDetails=" + contactDetails +
+                '}';
+    }
 }
